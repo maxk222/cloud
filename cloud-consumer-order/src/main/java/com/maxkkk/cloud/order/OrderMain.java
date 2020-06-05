@@ -1,15 +1,13 @@
-package com.maxkkk.cloud;
+package com.maxkkk.cloud.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-@EnableEurekaClient
 @SpringBootApplication
-public class PaymentMain {
+public class OrderMain {
 
 	public static void main(String[] args) throws Exception {
-		SpringApplication.run(PaymentMain.class, args);
+		SpringApplication.run(OrderMain.class, args);
 	}
 
 }

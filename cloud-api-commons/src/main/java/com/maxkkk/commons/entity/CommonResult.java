@@ -2,9 +2,13 @@ package com.maxkkk.commons.entity;
 
 import com.maxkkk.commons.enums.ResultCode;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CommonResult<T> {
 
     private int code;

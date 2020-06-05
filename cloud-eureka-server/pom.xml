@@ -6,14 +6,15 @@
 		<artifactId>cloud</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>cloud-consumer-order</artifactId>
+	<artifactId>cloud-eureka-server</artifactId>
 
 	<dependencies>
+		<!-- eureka-server -->
 		<dependency>
-			<groupId>com.maxkkk</groupId>
-			<artifactId>cloud-api-commons</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
+
 		<!--web依赖包，web应用必备 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -39,18 +40,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<!-- eureka-client -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-		
-		
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
 	</dependencies>
