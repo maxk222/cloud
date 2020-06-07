@@ -5,11 +5,14 @@ import com.maxkkk.commons.enums.ResultCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.omg.PortableServer.ServantActivator;
+
+import java.io.Serializable;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommonResult<T> {
+public class CommonResult<T> implements Serializable{
 
     private int code;
     private String msg;

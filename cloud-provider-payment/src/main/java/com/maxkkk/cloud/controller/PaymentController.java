@@ -1,12 +1,8 @@
 package com.maxkkk.cloud.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.*;
 
 import com.maxkkk.cloud.entity.Payment;
 import com.maxkkk.cloud.service.PaymentService;
@@ -22,10 +18,13 @@ public class PaymentController {
 	@Autowired
 	private PaymentService paymentService;
 
+	@Value("${server.port}")
+	private Integer serverPort;
+
 	@GetMapping("{id}")
 	public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
 		Payment payment = paymentService.findById(id);
-		log.info("*********查询支付接口**********:" + payment);
+		log.info("*********查询支付接口**********: serverPort:" + serverPort + payment);
 		return new CommonResult<>(payment);
 	}
 	

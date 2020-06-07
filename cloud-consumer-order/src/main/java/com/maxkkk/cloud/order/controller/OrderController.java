@@ -14,7 +14,7 @@ import com.maxkkk.commons.entity.CommonResult;
 @RequestMapping("consumer/order")
 public class OrderController {
 	
-	private final static String PAYMENT_URL = "http://localhost:8001";
+	private final static String PAYMENT_URL = "http://CLOUD-PROVIDER-PAYMENT";
 	
 	@Autowired
 	private RestTemplate restTemplate;

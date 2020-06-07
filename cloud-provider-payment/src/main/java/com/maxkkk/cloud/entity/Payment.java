@@ -9,10 +9,12 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
 @Entity
 @Table(name = "payment")
-public class Payment {
+public class Payment implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
