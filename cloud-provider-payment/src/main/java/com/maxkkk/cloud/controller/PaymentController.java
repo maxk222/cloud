@@ -1,7 +1,9 @@
 package com.maxkkk.cloud.controller;
 
+import com.maxkkk.commons.enums.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import com.maxkkk.cloud.entity.Payment;
@@ -24,15 +26,13 @@ public class PaymentController {
 	@GetMapping("{id}")
 	public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
 		Payment payment = paymentService.findById(id);
-		log.info("*********查询支付接口**********: serverPort:" + serverPort + payment);
-		return new CommonResult<>(payment);
+		return new CommonResult<>(ResultCode.SUCCESS, "*********查询支付接口**********: serverPort:" + serverPort, payment);
 	}
 	
 	@PostMapping
 	public CommonResult<Payment> createPayment(@RequestBody Payment payment) {
 		Payment new_payment = paymentService.createPayment(payment);
-		log.info("*********新建支付**********:" + new_payment);
-		return new CommonResult<>(new_payment);
+		return new CommonResult<>(ResultCode.SUCCESS, "*********查询支付接口**********: serverPort:" + serverPort, new_payment);
 	}
 	
 }

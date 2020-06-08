@@ -27,4 +27,10 @@ public class CommonResult<T> implements Serializable{
         this.msg = resultCode.getMsg();
         this.data = data;
     }
+
+    public CommonResult(ResultCode resultCode, String msg, T data) {
+        this.code = resultCode.getCode();
+        this.msg = msg;
+        this.data = data;
+    }
 }
