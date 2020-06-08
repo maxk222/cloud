@@ -37,16 +37,22 @@
 		</dependency>
 
 		<!-- eureka-client -->
-		<dependency>
+<!--		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-			<!-- 去除依赖的包 -->
+			&lt;!&ndash; 去除依赖的包 &ndash;&gt;
 			<exclusions>
 				<exclusion>
 					<groupId>com.fasterxml.jackson.dataformat</groupId>
 					<artifactId>jackson-dataformat-xml</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>-->
+
+		<!-- consul -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
 		</dependency>
 		
 		
