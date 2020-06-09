@@ -1,5 +1,6 @@
 package com.maxkkk.cloud.order.service;
 
+import com.maxkkk.cloud.order.config.PaymentServiceHystix;
 import com.maxkkk.cloud.order.entity.Payment;
 import com.maxkkk.commons.entity.CommonResult;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @Component
-@FeignClient(value = "CLOUD-PROVIDER-PAYMENT")
+@FeignClient(value = "CLOUD-PROVIDER-PAYMENT", fallback = PaymentServiceHystix.class)
 public interface PaymentFigenService {
 
     @GetMapping("/payment/{id}")
