@@ -1,9 +1,8 @@
-package com.maxkkk.cloud.order.config;
+package com.maxkkk.cloud.order.service;
 
 import org.springframework.stereotype.Component;
 
 import com.maxkkk.cloud.order.entity.Payment;
-import com.maxkkk.cloud.order.service.PaymentFigenService;
 import com.maxkkk.commons.entity.CommonResult;
 import com.maxkkk.commons.enums.ResultCode;
 
@@ -11,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class PaymentServiceHystix implements PaymentFigenService{
+public class PaymentServiceHystix implements PaymentFigenService {
 
 	@Override
 	public CommonResult<Payment> getPaymentById(Long id) {

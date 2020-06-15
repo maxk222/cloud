@@ -24,14 +24,14 @@ public class PaymentController {
 
 	@GetMapping("{id}")
 	public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
-		//Payment payment = paymentService.findById(id);
-		return new CommonResult<>(ResultCode.SUCCESS, "*********查询支付接口**********: serverPort:" + serverPort, null);
+		Payment payment = paymentService.findById(id);
+		return new CommonResult<>(ResultCode.SUCCESS, "*********查询支付接口**********: serverPort:" + serverPort, payment);
 	}
 	
 	@PostMapping
 	public CommonResult<Payment> createPayment(@RequestBody Payment payment) {
 		Payment new_payment = paymentService.createPayment(payment);
-		return new CommonResult<>(ResultCode.SUCCESS, "*********查询支付接口**********: serverPort:" + serverPort, new_payment);
+		return new CommonResult<>(ResultCode.SUCCESS, "*********创建支付接口**********: serverPort:" + serverPort, new_payment);
 	}
 	
 }

@@ -1,6 +1,8 @@
 package com.maxkkk.cloud.order.controller;
 
+import com.maxkkk.cloud.order.service.MacauthFeignService;
 import com.maxkkk.cloud.order.service.PaymentFigenService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,12 +15,16 @@ public class OrderController {
 
     @Autowired
     private PaymentFigenService figenService;
+    
+    @Autowired
+    private MacauthFeignService macauthFeignService;
 
     @GetMapping("{id}")
     public CommonResult<Payment> getOrder(@PathVariable Long id) {
-        //CommonResult<Payment> result = restTemplate.getForObject(PAYMENT_URL + "/payment/" + id, CommonResult.class);
-        CommonResult<Payment> result = figenService.getPaymentById(id);
-        return result;
+    	Object result = macauthFeignService.getLoginList("123");
+    	System.out.println(result);
+        //CommonResult<Payment> result = figenService.getPaymentById(id);
+        return null;
     }
 
     @PostMapping

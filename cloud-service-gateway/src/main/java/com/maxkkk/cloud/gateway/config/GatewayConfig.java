@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Bean;
 @SpringBootConfiguration
 public class GatewayConfig {
 
-	@Bean
+/*	@Bean
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
 		return builder.routes()
-				.route(r -> r.path("/payment/**").uri("http://localhost:8001"))
+				.route(r -> r.path("/payment/**").uri("lb://CLOUD-PROVIDER-PAYMENT"))
 				.build();
-	}
+	}*/
 }
