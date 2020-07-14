@@ -13,6 +13,9 @@
 		<module>cloud-eureka-server</module>
 		<module>cloud-provider-payment-hystrix</module>
 		<module>cloud-service-gateway</module>
+		<module>cloud-config-server</module>
+		<module>cloud-nacos-provider-payment</module>
+		<module>cloud-nacos-consumer-order</module>
 	</modules>
 
 	<!-- 统一管理jar包版本 -->
