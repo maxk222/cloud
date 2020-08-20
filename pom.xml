@@ -16,6 +16,7 @@
 		<module>cloud-config-server</module>
 		<module>cloud-nacos-provider-payment</module>
 		<module>cloud-nacos-consumer-order</module>
+		<module>cloud-cosumer-rabbitmq</module>
 	</modules>
 
 	<!-- 统一管理jar包版本 -->
