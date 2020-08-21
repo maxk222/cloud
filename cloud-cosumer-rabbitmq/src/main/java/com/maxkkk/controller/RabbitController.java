@@ -1,27 +1,17 @@
 package com.maxkkk.controller;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.DefaultConsumer;
-import com.rabbitmq.client.Envelope;
+import com.maxkkk.config.RabbitProduce;
 
 @RestController
 @RequestMapping("/rabbit")
 public class RabbitController {
 
-	public static final String QUEUE_NAME = "erduo";
-
-	@GetMapping("put")
+/*	@GetMapping("put")
 	public void put() {
 		try {
 			// 创建连接工厂
@@ -84,6 +74,13 @@ public class RabbitController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
+	@Autowired
+	private RabbitProduce rabbitProduce;
+	
+	@GetMapping("put")
+	public void put() {
+		rabbitProduce.convertAndSend();
+	}
 }
