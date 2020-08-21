@@ -37,7 +37,7 @@ public class RabbitProduce {
 	public void convertAndSend() {
 		CommonResult<String> text = new CommonResult<String>(LocalDateTime.now().toString());
 		log.info("Message content : " + text.toString());
-		rabbitTemplate.convertAndSend("directExchange", "sms", text);
+		rabbitTemplate.convertAndSend("topicExchange", "sms.liantong", text);
 		log.info("消息发送完毕。");
 	}
 

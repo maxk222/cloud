@@ -5,6 +5,7 @@ import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.FanoutExchange;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
@@ -26,29 +27,30 @@ public class RabbitmqConfig {
 	 * 一般只设置一下持久化即可 return new Queue(Constont.RABBIT_QUEUE_NAME, false); }
 	 */
 
-	@Bean
-	public Queue directQueue1() {
-		return new Queue("directQueue1");
-	}
+    // 主题交换机示例
+    @Bean
+    public Queue topicQueue1() {
+        return new Queue("topicQueue1");
+    }
 
-	@Bean
-	public Queue directQueue2() {
-		return new Queue("directQueue2");
-	}
+    @Bean
+    public Queue topicQueue2() {
+        return new Queue("topicQueue2");
+    }
 
-	@Bean
-	public DirectExchange directExchange() {
-		// 三个构造参数：name durable autoDelete
-		return new DirectExchange("directExchange", false, false);
-	}
+    @Bean
+    public TopicExchange topicExchange() {
+        // 三个构造参数：name durable autoDelete
+        return new TopicExchange("topicExchange", false, false);
+    }
 
-	@Bean
-	public Binding directBinding1() {
-		return BindingBuilder.bind(directQueue1()).to(directExchange()).with("sms");
-	}
+    @Bean
+    public Binding topicBinding1() {
+        return BindingBuilder.bind(topicQueue1()).to(topicExchange()).with("sms.*");
+    }
 
-	@Bean
-	public Binding directBinding2() {
-		return BindingBuilder.bind(directQueue2()).to(directExchange()).with("mail");
-	}
+    @Bean
+    public Binding topicBinding2() {
+        return BindingBuilder.bind(topicQueue2()).to(topicExchange()).with("mail.#");
+    }
 }
