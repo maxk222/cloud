@@ -23,7 +23,7 @@ public class RabbitConsumer {
 		log.info("消息已确认");
 	}
 	
-	@RabbitListener(queues = "fanout1")
+	@RabbitListener(queues = "directQueue1")
 	public <T> void onMessage(@Payload CommonResult<T> result, @Headers Map<String, Object> headers, Channel channel) throws Exception {
 		log.info(LocalDateTime.now().toString());
 		log.info("Message content : " + result.toString());
@@ -32,7 +32,7 @@ public class RabbitConsumer {
 		log.info("消息已确认");
 	}
 	
-	@RabbitListener(queues = "fanout2")
+	@RabbitListener(queues = "directQueue2")
 	public <T> void onMessage2(@Payload CommonResult<T> result, @Headers Map<String, Object> headers, Channel channel) throws Exception {
 		log.info(LocalDateTime.now().toString());
 		log.info("Message2 content : " + result.toString());
