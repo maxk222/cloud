@@ -18,7 +18,6 @@ public class RabbitProduceTest {
 
 	@Test
 	public void sendSimpleMessage() {
-		rabbitProduce.send();
 		rabbitProduce.convertAndSend();
 	}
 }
